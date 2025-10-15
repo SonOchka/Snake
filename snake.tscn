@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://oxirj2an8gfa"]
+
+[ext_resource type="Texture2D" uid="uid://0srrv0uelnei" path="res://Змея(голова).png" id="1_baghe"]
+[ext_resource type="Script" uid="uid://rdsy36tbjkc7" path="res://head.gd" id="1_gxkgb"]
+[ext_resource type="Script" uid="uid://c3xqfyu760wwo" path="res://body.gd" id="3_ej4wj"]
+[ext_resource type="Texture2D" uid="uid://bet5v32vsf41p" path="res://Змея(туловище).png" id="4_xox5r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sn80k"]
+radius = 62.1289
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7y7h1"]
+radius = 50.3654
+
+[node name="Snake" type="Node2D"]
+
+[node name="Head" type="Area2D" parent="."]
+position = Vector2(228, 50)
+scale = Vector2(0.239999, 0.24)
+script = ExtResource("1_gxkgb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+texture = ExtResource("1_baghe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Sprite2D"]
+shape = SubResource("CircleShape2D_sn80k")
+
+[node name="Body" type="Area2D" parent="."]
+position = Vector2(199, 50)
+scale = Vector2(0.2381, 0.217775)
+script = ExtResource("3_ej4wj")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture = ExtResource("4_xox5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sprite2D"]
+position = Vector2(-3, 3)
+shape = SubResource("CircleShape2D_7y7h1")
