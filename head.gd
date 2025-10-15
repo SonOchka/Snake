@@ -44,6 +44,19 @@ func handle_input():
 		next_direction = Direction.LEFT
 	elif Input.is_action_just_pressed("ui_right") and current_direction != Direction.LEFT:
 		next_direction = Direction.RIGHT
+	
+	rotateHead()
+
+func rotateHead():
+	if next_direction == Direction.UP:
+		rotation_degrees = 270
+	if next_direction == Direction.DOWN:
+		rotation_degrees = 90
+	if next_direction == Direction.RIGHT:
+		rotation_degrees = 0
+	if next_direction == Direction.LEFT:
+		rotation_degrees = 180
+
 
 func move_snake():
 	current_direction = next_direction
