@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqg3acasevw16"]
+
+[ext_resource type="PackedScene" uid="uid://oxirj2an8gfa" path="res://snake.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://b0twg4ufy2jtb" path="res://rat.tscn" id="2_oi3di"]
+
+[node name="level" type="Node2D"]
+
+[node name="Rat" parent="." instance=ExtResource("2_oi3di")]
+position = Vector2(1, 0)
+
+[node name="Snake" parent="." instance=ExtResource("1_vonw3")]
+visibility_layer = 1

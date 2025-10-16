@@ -3,25 +3,27 @@ extends Area2D
 
 const GRID_SIZE = 32  # Размер сетки
 const MOVE_SPEED = 0.2  # Время между движениями (в секундах)
+const BODY_SCENE = preload("res://body.tscn")
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
 
 var current_direction = Direction.RIGHT
 var next_direction = Direction.RIGHT
-
 var move_timer = 0.0
-
 var body_segments = []
 
 signal moved(new_position)
 
 func _ready():
+	add_to_group("head")
 	call_deferred("initialize_snake")
+	area_entered.connect(_on_area_entered)
+	
 
 func initialize_snake():
 	body_segments = get_tree().get_nodes_in_group("body_segments")
-	
 	body_segments.sort_custom(func(a, b): return a.name < b.name)
+	
 	
 	for i in range(body_segments.size()):
 		var segment = body_segments[i]
@@ -87,12 +89,28 @@ func move_body_segments(head_old_position):
 			previous_position = segment_old_position
 
 func grow():
-	pass
+	var new_body_segment = BODY_SCENE.instantiate()
+	get_parent().add_child(new_body_segment)
+	
+	var tail_position
+
+	if body_segments.size() > 0:
+		tail_position = body_segments[-1].global_position
+	else:
+		tail_position = global_position - Vector2(GRID_SIZE, 0)
+
+
+	new_body_segment.global_position = tail_position
+	
+	body_segments.append(new_body_segment)
+	print(body_segments.size())
 
 func _on_area_entered(area):
-	if area.is_in_group("food"):
+	if area.is_in_group("rat"):
 		grow()
-		area.queue_free()  
+		if area.has_method("on_eaten"):
+			area.on_eaten()
+
 	elif area.is_in_group("body_segments") or area.is_in_group("wall"):
 		game_over()
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0lqnrvc6saco"]
+
+[ext_resource type="Script" uid="uid://c3xqfyu760wwo" path="res://body.gd" id="1_in4ii"]
+[ext_resource type="Texture2D" uid="uid://bet5v32vsf41p" path="res://Змея(туловище).png" id="2_bfrdl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qfe4"]
+radius = 54.4243
+
+[node name="body" type="Area2D"]
+scale = Vector2(0.238, 0.218)
+script = ExtResource("1_in4ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4)
+shape = SubResource("CircleShape2D_4qfe4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bfrdl")
