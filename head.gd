@@ -89,11 +89,17 @@ func move_body_segments(head_old_position):
 			previous_position = segment_old_position
 
 func grow():
+	call_deferred("create_body_segment")
+
+func create_body_segment():
 	var new_body_segment = BODY_SCENE.instantiate()
-	get_parent().add_child(new_body_segment)
+	
+	if is_instance_valid(get_parent()):
+		get_parent().add_child(new_body_segment)
+	else:
+		get_tree().current_scene.add_child(new_body_segment)
 	
 	var tail_position
-
 	if body_segments.size() > 0:
 		tail_position = body_segments[-1].global_position
 	else:
@@ -101,15 +107,12 @@ func grow():
 
 
 	new_body_segment.global_position = tail_position
-	
 	body_segments.append(new_body_segment)
 	print(body_segments.size())
 
 func _on_area_entered(area):
 	if area.is_in_group("rat"):
 		grow()
-		if area.has_method("on_eaten"):
-			area.on_eaten()
 
 	elif area.is_in_group("body_segments") or area.is_in_group("wall"):
 		game_over()
