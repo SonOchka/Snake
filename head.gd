@@ -158,3 +158,8 @@ func _on_area_entered(area):
 func game_over():
 	print("Game Over!")
 	get_tree().paused = true
+	
+	await get_tree().create_timer(2.0).timeout
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://menu.tscn")
+	
