@@ -12,6 +12,9 @@ var next_direction = Direction.RIGHT
 var move_timer = 0.0
 var body_segments = []
 
+var swipe_start_position = Vector2()
+var minimum_swipe_distance = 50
+
 signal moved(new_position)
 
 func _ready():
@@ -37,6 +40,7 @@ func _process(delta):
 		move_timer = 0.0
 		move_snake()
 
+
 func handle_input():
 	if Input.is_action_just_pressed("ui_up") and current_direction != Direction.DOWN:
 		next_direction = Direction.UP
@@ -46,7 +50,41 @@ func handle_input():
 		next_direction = Direction.LEFT
 	elif Input.is_action_just_pressed("ui_right") and current_direction != Direction.LEFT:
 		next_direction = Direction.RIGHT
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			swipe_start_position = event.position
+		else:
+			handle_swipe(event.position)
+
+	if event is InputEventMouseButton:
+		if event.pressed:
+			swipe_start_position = event.position
+		else:
+			handle_swipe(event.position)
+
+func handle_swipe(end_position):
+	var swipe_vector = end_position - swipe_start_position
+	var swipe_distance = swipe_vector.length()
 	
+	if swipe_distance < minimum_swipe_distance:
+		return
+	
+	swipe_vector  = swipe_vector.normalized()
+	
+	if abs(swipe_vector.x) > abs(swipe_vector.y):
+		if swipe_vector.x > 0 and current_direction != Direction.LEFT:
+			next_direction = Direction.RIGHT
+		elif swipe_vector.x < 0 and current_direction !=Direction.RIGHT:
+			next_direction = Direction.LEFT
+	
+	else:
+		if swipe_vector.y > 0 and current_direction != Direction.UP:
+			next_direction = Direction.DOWN
+		elif swipe_vector.y < 0 and current_direction != Direction.DOWN:
+			next_direction = Direction.UP
+
 	rotateHead()
 
 func rotateHead():
