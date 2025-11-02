@@ -1,25 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://ftqsj1y4lgwr"]
+[gd_scene load_steps=3 format=3 uid="uid://ftqsj1y4lgwr"]
 
 [ext_resource type="Script" uid="uid://b7kpxp34nvvn7" path="res://menu.gd" id="1_mae5d"]
-[ext_resource type="Texture2D" uid="uid://b3p5ww2syny1i" path="res://Quit Button.png" id="1_ouk20"]
-[ext_resource type="Texture2D" uid="uid://dp2yy0etaas3a" path="res://Play Button.png" id="2_mae5d"]
+[ext_resource type="PackedScene" uid="uid://nt1v3n4nt6ka" path="res://parallax_background.tscn" id="4_4hy44"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_mae5d")
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 262.0
-offset_top = 359.0
-offset_right = 870.0
-offset_bottom = 567.0
-icon = ExtResource("1_ouk20")
+offset_left = 418.0
+offset_top = 307.0
+offset_right = 688.0
+offset_bottom = 400.0
+theme_override_colors/font_color = Color(0.986752, 0.986752, 0.986752, 1)
+theme_override_font_sizes/font_size = 42
+text = "Quit"
 
 [node name="Play" type="Button" parent="."]
-offset_left = 263.0
-offset_top = 80.0
-offset_right = 871.0
-offset_bottom = 288.0
-icon = ExtResource("2_mae5d")
+offset_left = 419.0
+offset_top = 196.0
+offset_right = 687.0
+offset_bottom = 290.0
+theme_override_colors/font_disabled_color = Color(0.977937, 0.977937, 0.977937, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.977937, 0.977937, 0.977937, 1)
+theme_override_colors/font_hover_color = Color(0.982343, 0.982342, 0.982342, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.991164, 0.991164, 0.991164, 1)
+theme_override_colors/icon_hover_color = Color(0.986752, 0.986752, 0.986752, 1)
+theme_override_colors/icon_pressed_color = Color(0.969137, 0.969137, 0.969137, 1)
+theme_override_colors/icon_focus_color = Color(0.977937, 0.977937, 0.977937, 1)
+theme_override_colors/icon_normal_color = Color(0.986752, 0.986752, 0.986752, 1)
+theme_override_colors/font_outline_color = Color(0.964742, 0.964742, 0.964742, 1)
+theme_override_colors/font_color = Color(0.973535, 0.973535, 0.973535, 1)
+theme_override_colors/font_focus_color = Color(0.977937, 0.977937, 0.977937, 1)
+theme_override_colors/font_pressed_color = Color(0.991164, 0.991164, 0.991164, 1)
+theme_override_font_sizes/font_size = 42
+text = "Play"
+
+[node name="PB" parent="." instance=ExtResource("4_4hy44")]
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
