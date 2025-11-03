@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bet5v32vsf41p" path="res://Змея(туловище).png" id="4_xox5r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_olj5u"]
-radius = 65.8811
+radius = 67.8287
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dw1s1"]
-radius = 54.5989
+radius = 50.4202
 
 [node name="Snake" type="Node2D"]
 visibility_layer = 6
@@ -17,29 +17,35 @@ visibility_layer = 6
 [node name="Head" type="Area2D" parent="."]
 light_mask = 13
 visibility_layer = 2
-position = Vector2(229, 49)
+position = Vector2(204, 70)
 scale = Vector2(0.239999, 0.24)
 script = ExtResource("1_gxkgb")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Head"]
+position = Vector2(-1.52588e-05, -3.62396e-05)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_baghe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(4.57764e-05, -2.52724e-05)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_olj5u")
-metadata/_edit_group_ = true
 
 [node name="Body" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 4
-position = Vector2(198, 51)
-scale = Vector2(0.2381, 0.217775)
+position = Vector2(160, 73)
+scale = Vector2(0.238, 0.218)
 script = ExtResource("3_ej4wj")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
+position = Vector2(0, 1.62125e-05)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_xox5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
-position = Vector2(-4.19992, 4.59188)
+position = Vector2(-4.20168, 4.58714)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_dw1s1")
-metadata/_edit_group_ = true

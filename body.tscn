@@ -4,15 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bet5v32vsf41p" path="res://Змея(туловище).png" id="2_bfrdl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4qfe4"]
-radius = 54.4243
+radius = 54.6218
 
 [node name="body" type="Area2D"]
 scale = Vector2(0.238, 0.218)
 script = ExtResource("1_in4ii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 4)
+position = Vector2(-4.20168, 4.58716)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_4qfe4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_bfrdl")

@@ -7,19 +7,19 @@
 script = ExtResource("1_mae5d")
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 418.0
-offset_top = 307.0
-offset_right = 688.0
-offset_bottom = 400.0
+offset_left = 226.0
+offset_top = 644.0
+offset_right = 494.0
+offset_bottom = 738.0
 theme_override_colors/font_color = Color(0.986752, 0.986752, 0.986752, 1)
 theme_override_font_sizes/font_size = 42
 text = "Quit"
 
 [node name="Play" type="Button" parent="."]
-offset_left = 419.0
-offset_top = 196.0
-offset_right = 687.0
-offset_bottom = 290.0
+offset_left = 231.0
+offset_top = 456.0
+offset_right = 499.0
+offset_bottom = 550.0
 theme_override_colors/font_disabled_color = Color(0.977937, 0.977937, 0.977937, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.977937, 0.977937, 0.977937, 1)
 theme_override_colors/font_hover_color = Color(0.982343, 0.982342, 0.982342, 1)

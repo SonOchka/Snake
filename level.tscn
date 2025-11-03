@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqg3acasevw16"]
+[gd_scene load_steps=7 format=3 uid="uid://bqg3acasevw16"]
 
 [ext_resource type="PackedScene" uid="uid://oxirj2an8gfa" path="res://snake.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b0twg4ufy2jtb" path="res://rat.tscn" id="2_oi3di"]
+[ext_resource type="Script" uid="uid://ddahbv7c63aid" path="res://parallax_background.gd" id="3_1ainy"]
+[ext_resource type="Texture2D" uid="uid://cqomddgaae7gb" path="res://nature_3/1.png" id="4_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://dl1svcq2botky" path="res://nature_3/2.png" id="5_km5ld"]
+[ext_resource type="Texture2D" uid="uid://bstqn0yuhxyla" path="res://nature_3/3.png" id="6_i2t4f"]
 
 [node name="level" type="Node2D"]
 
@@ -10,3 +14,32 @@ position = Vector2(1, 0)
 
 [node name="Snake" parent="." instance=ExtResource("1_vonw3")]
 visibility_layer = 1
+
+[node name="PB" type="ParallaxBackground" parent="."]
+script = ExtResource("3_1ainy")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="PB"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1604.95, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PB/ParallaxLayer"]
+position = Vector2(804.5, 641)
+scale = Vector2(2.78646, 3.95679)
+texture = ExtResource("4_n6hdu")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="PB"]
+motion_scale = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PB/ParallaxLayer2"]
+position = Vector2(428, 732.875)
+scale = Vector2(2.22048, 4.51312)
+texture = ExtResource("5_km5ld")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="PB"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1277.99, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PB/ParallaxLayer3"]
+position = Vector2(641, 743.5)
+scale = Vector2(2.21875, 4.57716)
+texture = ExtResource("6_i2t4f")
