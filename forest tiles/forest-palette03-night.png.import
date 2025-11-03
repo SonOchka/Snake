@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xkbh38e416bj"
-path="res://.godot/imported/5.png-3d64406c12e6fcab7ca8fd6341ec0dab.ctex"
+uid="uid://cmdk7d3b6ct6i"
+path="res://.godot/imported/forest-palette03-night.png-f201fb6b3a48cb5fd38b4a09ea51b99e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background 1/5.png"
-dest_files=["res://.godot/imported/5.png-3d64406c12e6fcab7ca8fd6341ec0dab.ctex"]
+source_file="res://forest tiles/forest-palette03-night.png"
+dest_files=["res://.godot/imported/forest-palette03-night.png-f201fb6b3a48cb5fd38b4a09ea51b99e.ctex"]
 
 [params]
 

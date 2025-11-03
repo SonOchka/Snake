@@ -18,11 +18,11 @@ func _on_area_entered(area):
 
 func move_to_random_position():
 	var viewport_size = get_viewport_rect().size
-	var max_x = int(viewport_size.x / GRIDE_SIZE) - 1
-	var max_y = int(viewport_size.y / GRIDE_SIZE) - 1
+	var max_x = int((viewport_size.x - GRIDE_SIZE * 2) / GRIDE_SIZE)
+	var max_y = int((viewport_size.y - GRIDE_SIZE * 2) / GRIDE_SIZE)
 
-	var new_x = randi() % max_x * GRIDE_SIZE
-	var new_y = randi() % max_y * GRIDE_SIZE
+	var new_x = (randi() % max_x + 1) * GRIDE_SIZE
+	var new_y = (randi() % max_y + 1) * GRIDE_SIZE
 
 	global_position = Vector2(new_x, new_y)
 

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const GRID_SIZE = 32  # Размер сетки
+const GRID_SIZE = 48  # Размер сетки
 const MOVE_SPEED = 0.2  # Время между движениями (в секундах)
 const BODY_SCENE = preload("res://body.tscn")
 
@@ -19,6 +19,11 @@ signal moved(new_position)
 
 func _ready():
 	add_to_group("head")
+	
+	var screen_size = get_viewport().get_visible_rect().size
+	global_position = Vector2(round(screen_size.x / 2 / GRID_SIZE) * GRID_SIZE, round(screen_size.y / 2 / GRID_SIZE) * GRID_SIZE)
+	
+	
 	call_deferred("initialize_snake")
 	area_entered.connect(_on_area_entered)
 	
