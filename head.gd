@@ -21,8 +21,11 @@ func _ready():
 	add_to_group("head")
 	
 	var screen_size = get_viewport().get_visible_rect().size
-	global_position = Vector2(round(screen_size.x / 2 / GRID_SIZE) * GRID_SIZE, round(screen_size.y / 2 / GRID_SIZE) * GRID_SIZE)
+	# старый метод позиционирования 
+	#global_position = Vector2(round(screen_size.x / 2 / GRID_SIZE) * GRID_SIZE, round(screen_size.y / 2 / GRID_SIZE) * GRID_SIZE)
 	
+	# убрал лишнее и сдвинул глобальную позицию в центр клетки
+	global_position = Vector2(GRID_SIZE / 2, GRID_SIZE / 2)
 	
 	call_deferred("initialize_snake")
 	area_entered.connect(_on_area_entered)

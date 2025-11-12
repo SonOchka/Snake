@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci61rn675ikgc"]
+
+[ext_resource type="PackedScene" uid="uid://b0twg4ufy2jtb" path="res://rat.tscn" id="1_21xmu"]
+[ext_resource type="Script" uid="uid://cbw0jlw8fnbw0" path="res://testLevel.gd" id="1_aldhi"]
+[ext_resource type="PackedScene" uid="uid://oxirj2an8gfa" path="res://snake.tscn" id="2_8i3m3"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_aldhi")
+
+[node name="Rat" parent="." instance=ExtResource("1_21xmu")]
+
+[node name="Snake" parent="." instance=ExtResource("2_8i3m3")]
+visibility_layer = 1
