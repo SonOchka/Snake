@@ -1,10 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://by08pfaqno0ax"]
+[gd_scene load_steps=3 format=3 uid="uid://by08pfaqno0ax"]
 
-[ext_resource type="Script" uid="uid://56o76hcttdem" path="res://head.gd" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://b7y7nyo38kq2h" path="res://i (1)-edited-free (carve.photos).png" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://m8arkaeb2oh6" path="res://body_parts.gd" id="3_272bh"]
-[ext_resource type="Texture2D" uid="uid://ckr10dqymlws3" path="res://body.png" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://caebgsv51p2gl" path="res://body2.png" id="5_kek77"]
+[ext_resource type="Script" uid="uid://rdsy36tbjkc7" path="res://head.gd" id="1_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4c57u"]
 radius = 13.0
@@ -17,21 +13,17 @@ script = ExtResource("1_lquwl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Head"]
 scale = Vector2(0.374402, 0.424387)
-texture = ExtResource("2_7mycd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 shape = SubResource("CircleShape2D_4c57u")
 
 [node name="BodyParts" type="Node2D" parent="."]
-script = ExtResource("3_272bh")
 
 [node name="Segment1" type="Sprite2D" parent="BodyParts"]
 position = Vector2(164, 41)
 rotation = -3.14159
 scale = Vector2(0.366, 0.421)
-texture = ExtResource("4_5vw27")
 
 [node name="Segment2" type="Sprite2D" parent="BodyParts"]
 position = Vector2(74, 47)
 scale = Vector2(0.479, 0.427)
-texture = ExtResource("5_kek77")

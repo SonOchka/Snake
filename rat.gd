@@ -1,6 +1,6 @@
 extends Area2D
 
-const GRIDE_SIZE = 32
+const GRIDE_SIZE = 48
 const RAT_SCENE = preload("res://rat.tscn")
 
 var is_eaten = false
@@ -24,8 +24,13 @@ func move_to_random_position():
 	var new_x = (randi() % max_x + 1) * GRIDE_SIZE
 	var new_y = (randi() % max_y + 1) * GRIDE_SIZE
 
-	global_position = Vector2(new_x, new_y)
-
+	# старыйый метод позиционирования
+	#global_position = Vector2(new_x, new_y)
+	
+	# сдвинул мышь в центр клетки но в минус.
+	# todo возможно будет иногда выпадать за левый тдт верхний край. нужно проверить.
+	global_position = Vector2(new_x - (GRIDE_SIZE / 2), new_y - (GRIDE_SIZE / 2))
+	
 	scale = Vector2(0.5, 0.5)
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3)
